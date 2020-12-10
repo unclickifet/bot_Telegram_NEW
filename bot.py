@@ -1,4 +1,6 @@
-from telegram.ext import Updater
+from telegram import Update
+from telegram.ext import Updater, CommandHandler, CallbackContext
+
 updater = Updater(token='1295611507:AAHLGyAKby-ilZijQhsEelNYhsT9ELYaZbg')
 
 dispatcher = updater.dispatcher
