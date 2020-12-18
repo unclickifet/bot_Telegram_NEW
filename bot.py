@@ -1,7 +1,15 @@
-from telegram.ext import Updater
-from telegram.ext import MessageHandler, Filters
 import logging
-from telegram.ext import CommandHandler
+from typing import Dict
+
+from telegram import ReplyKeyboardMarkup, Update
+from telegram.ext import (
+    Updater,
+    CommandHandler,
+    MessageHandler,
+    Filters,
+    ConversationHandler, 
+    CallbackContext,
+)
 
 updater = Updater(token='1295611507:AAHLGyAKby-ilZijQhsEelNYhsT9ELYaZbg', use_context=True)
 
@@ -20,7 +28,9 @@ dispatcher.add_handler(start_handler)
 
 updater.start_polling()
 
+
 def echo(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text=update.message.text)
 
 echo_handler = MessageHandler(Filters.text & (~Filters.command), echo)
+dispatcher.add_handler(echo_handler)

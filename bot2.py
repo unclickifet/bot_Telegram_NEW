@@ -20,5 +20,8 @@ logger = logging.getLogger(__name__)
 CHOOSING, TYPING_REPLY, TYPING_CHOICE = range(3)
 
 reply_keyboard = [
-    
+    []
 ]
+
+markup = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True)
+
